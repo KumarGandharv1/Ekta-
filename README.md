@@ -13,7 +13,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
   color: white;
 }
@@ -21,47 +21,55 @@ body {
 .container {
   background: rgba(255,255,255,0.15);
   backdrop-filter: blur(12px);
-  padding: 40px 30px;
+  padding: 40px 25px;
   border-radius: 25px;
   width: 90%;
-  max-width: 420px;
+  max-width: 450px;
   box-shadow: 0 25px 50px rgba(0,0,0,0.25);
 }
 
-h1 {
-  font-size: 26px;
+.gallery img {
+  width: 100%;
+  border-radius: 15px;
   margin-bottom: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
 p {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.6;
-  margin-bottom: 25px;
 }
 
 button {
+  margin: 10px;
+  padding: 12px 25px;
+  border-radius: 50px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#yes {
   background: white;
   color: #ff4d6d;
-  border: none;
-  padding: 14px 30px;
-  font-size: 16px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s ease;
+}
+
+#no {
+  background: #ff4d6d;
+  color: white;
 }
 
 button:hover {
   transform: scale(1.08);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
 .hidden {
   display: none;
 }
 
-.celebration {
-  font-size: 20px;
+.final {
+  font-size: 18px;
   margin-top: 20px;
 }
 </style>
@@ -70,31 +78,62 @@ button:hover {
 <body>
 
 <div class="container">
-  <h1 id="title">Ekta ❤️</h1>
+
+  <h2>Ekta ❤️</h2>
+
+  <div class="gallery">
+    <img src="photo1.jpg" alt="Memory 1">
+    <img src="photo2.jpg" alt="Memory 2">
+  </div>
 
   <p id="message">
     14 years together… and now we are about to get married. 💍<br><br>
-    This journey has been nothing less than magical.  
-    Every laugh, every fight, every memory —  
+    Every laugh, every memory, every second with you is priceless.  
     I cannot forget a single moment spent with you.  
-    You have been my best friend, my strength, my forever. ❤️<br><br>
-    So today, I want to ask you something special…
+    You are my forever. ❤️<br><br>
+    So tell me...
   </p>
 
-  <h2>Will you be my Valentine — forever? 💖</h2>
+  <h3>Will you be my Valentine — forever? 💖</h3>
 
-  <button onclick="sayYes()">YES, Always ❤️</button>
+  <button id="yes" onclick="sayYes()">YES ❤️</button>
+  <button id="no" onclick="noClicked()">NO 😜</button>
 
-  <div id="finalMessage" class="celebration hidden">
-    💞 You are my 14 years, my today, and my forever. 💞<br>
-    I love you, Ekta. ❤️
+  <div id="finalMessage" class="final hidden">
+    💞 From 14 years… to forever. 💞<br>
+    I love you endlessly, Ekta. ❤️
   </div>
+
 </div>
 
 <script>
+
+let noCount = 0;
+
+function noClicked() {
+  noCount++;
+
+  if(noCount == 1) {
+    document.getElementById("message").innerHTML =
+    "Ektaaa 😏 After 14 years… this is your answer?";
+  }
+  else if(noCount == 2) {
+    document.getElementById("message").innerHTML =
+    "Think again… we are literally getting married soon 💍❤️";
+  }
+  else if(noCount == 3) {
+    document.getElementById("message").innerHTML =
+    "Okay okay… clearly the only correct answer is YES 😌";
+    document.getElementById("no").style.display = "none";
+  }
+}
+
 function sayYes() {
   document.getElementById("finalMessage").classList.remove("hidden");
+  document.getElementById("yes").style.display = "none";
+  document.getElementById("no").style.display = "none";
 }
+
 </script>
 
 </body>
