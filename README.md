@@ -28,11 +28,8 @@ body {
   box-shadow: 0 25px 50px rgba(0,0,0,0.25);
 }
 
-.gallery img {
-  width: 100%;
-  border-radius: 15px;
+h2 {
   margin-bottom: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
 p {
@@ -80,11 +77,6 @@ button:hover {
 <div class="container">
 
   <h2>Ekta ❤️</h2>
-
-  <div class="gallery">
-    <img src="photo1.jpg" alt="Memory 1">
-    <img src="photo2.jpg" alt="Memory 2">
-  </div>
 
   <p id="message">
     14 years together… and now we are about to get married. 💍<br><br>
